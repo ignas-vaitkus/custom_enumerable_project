@@ -16,18 +16,6 @@ module Enumerable
     false
   end
 
-  def my_none?
-    self.my_each { |elem| return false if yield(elem) }
-
-    true
-  end
-end
-
-# You will first have to define my_each
-# on the Array class. Methods defined in
-# your enumerable module will have access
-# to this method
-class Array
   def my_count
     count = 0
 
@@ -38,11 +26,6 @@ class Array
     count
   end
 
-  def my_each
-    for elem in self
-      yield(elem)
-    end
-  end
 
   def my_each_with_index
     for index in 0..(self.length-1)
@@ -62,5 +45,23 @@ class Array
     arr = []
     self.my_each { |elem| arr.push(yield(elem)) }
     arr
+  end
+
+  def my_none?
+    self.my_each { |elem| return false if yield(elem) }
+
+    true
+  end
+end
+
+# You will first have to define my_each
+# on the Array class. Methods defined in
+# your enumerable module will have access
+# to this method
+class Array
+  def my_each
+    for elem in self
+      yield(elem)
+    end
   end
 end
