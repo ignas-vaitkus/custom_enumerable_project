@@ -51,4 +51,10 @@ class Array
     end
     acc
   end
+
+  def my_map
+    arr = []
+    self.my_each { |elem| arr.push(yield(elem)) }
+    arr
+  end
 end
