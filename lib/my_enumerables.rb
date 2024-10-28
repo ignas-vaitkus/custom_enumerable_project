@@ -1,7 +1,7 @@
 module Enumerable
   # Your code goes here
   def my_all?
-    self.each do |elem|
+    self.my_each do |elem|
       return false unless yield(elem)
     end
 
@@ -9,7 +9,7 @@ module Enumerable
   end
 
   def my_any?
-    self.each do |elem|
+    self.my_each do |elem|
       return yield(elem) if yield(elem)
     end
 
@@ -22,5 +22,9 @@ end
 # your enumerable module will have access
 # to this method
 class Array
-  # Define my_each here
+  def my_each
+    for elem in self
+      yield(elem)
+    end
+  end
 end
