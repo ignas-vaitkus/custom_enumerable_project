@@ -1,5 +1,12 @@
 module Enumerable
   # Your code goes here
+  def my_all?
+    self.each do |elem|
+      return false unless yield(elem)
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each
