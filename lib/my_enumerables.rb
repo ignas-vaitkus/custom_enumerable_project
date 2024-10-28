@@ -44,4 +44,11 @@ class Array
     end
     self
   end
+
+  def my_inject(acc)
+    self.my_each do |elem|
+      acc = yield(acc, elem)
+    end
+    acc
+  end
 end
