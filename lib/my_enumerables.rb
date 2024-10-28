@@ -37,4 +37,11 @@ class Array
       yield(elem)
     end
   end
+
+  def my_each_with_index
+    for index in 0..(self.length-1)
+      yield(self[index], index)
+    end
+    self
+  end
 end
